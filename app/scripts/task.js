@@ -21,7 +21,14 @@ export default function ( store ) {
           <th>important</th>
           <th>due date</th>
         </tr>
-        <tr id="form"></tr>
+        <tr>
+          <td></td>
+          <td>pull weeds</td>
+          <td>gloves, trash can</td>
+          <td>false</td>
+          <td>yes</td>
+          <td>04/06/2015 5:35pm</td>
+        </tr>
       </table>
     </section>
   `);

@@ -2,14 +2,13 @@ html {
   display: flex;
   justify-content: center;
     body {
-        margin: 0;
-        padding: 0;
-        background: #004385;
-        font-family: 'Architects Daughter', cursive;
-        color: #07CDFF;
+      margin: 0;
+      padding: 0;
+      background: #004385;
+      font-family: 'Architects Daughter', cursive;
+      color: #07CDFF;
     }
 }
-
 
 h1 {
   font-family: 'Lobster', cursive;
@@ -39,10 +38,28 @@ h2 {
   padding: auto;
 }
 
-table {
-  justify-content: center;
+table th {
+  font-size: 18px;
+}
+
+table th, table td {
+  width: 174px;
+  border: 1px, solid, white;
+  text-align: left;
+  padding-left: 3px;
+  padding-bottom: 3px;
 }
 
 input {
   font-family: 'Architects Daughter', cursive;
+}
+
+button {
+  width: 174px;
+  background-color: #07CDFF
+}
+
+button:hover {
+  background-color: #1f88a2;
+  color: #fafafa;
 }
