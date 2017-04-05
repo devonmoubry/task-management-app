@@ -9,7 +9,8 @@ export default function app() {
 
   const initialState = {
     username: null,
-    view: loginView
+    view: loginView,
+    tasks: []
   }
 
   const reducer = function ( currentState, action ) {
@@ -19,11 +20,10 @@ export default function app() {
     }
 
     switch( action.type ) {
-      case "TASK_VIEW":
-        var newState =
-          Object.assign({}, currentState, {view: taskView});
-        console.log('Task case works!');
-        return newState;
+
+      case "LOGIN_VIEW":
+        console.log('hi there');
+        return initialState;
 
       case "LOGGING_IN":
         $.ajax({
@@ -57,6 +57,12 @@ export default function app() {
         };
         return Object.assign({}, currentState, newState);
 
+      case "TASK_VIEW":
+        var newState =
+          Object.assign({}, currentState, {view: taskView});
+        console.log('Task case works!');
+        return newState;
+
       default:
         console.log('This is the switch default');
         return currentState;
@@ -71,6 +77,6 @@ export default function app() {
   }
 
   store.subscribe( render );
-  store.dispatch( { type: "LOGIN" } );
+  store.dispatch( { type: "LOGIN_VIEW" } );
 
 }
