@@ -7,9 +7,9 @@ export default function ( store ) {
       <h1>Task Management App with Backendless</h1>
         <form id="login" action="" method="post">
           <label for="username">username: </label>
-          <input id="username" type="text">
+          <input id="username" type="text" placeholder="@example.com" value="connor@example.com">
           <label for="password">password: </label>
-          <input id="password" type="password">
+          <input id="password" type="password" value="password">
           <input type="submit" value="login">
         </form>
     </section>
