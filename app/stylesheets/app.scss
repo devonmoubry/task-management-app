@@ -1,12 +1,12 @@
 html {
+  display: flex;
+  justify-content: center;
     body {
         margin: 0;
         padding: 0;
         background: #004385;
         font-family: 'Architects Daughter', cursive;
-        display: flex;
-        justify-content: center;
-        color: #05B2DC;
+        color: #07CDFF;
     }
 }
 
@@ -14,24 +14,33 @@ html {
 h1 {
   font-family: 'Lobster', cursive;
   text-align: center;
+  font-size: 36px;
 }
 
 h2 {
   text-align: center;
   font-family: 'Architects Daughter', cursive;
   font-weight: bold;
+  font-size: 36px;
 }
 
 .login-view {
   display: flex;
   vertical-align: middle;
+  justify-content: center;
   flex-direction: column;
 }
 
 .task-view {
   display: flex;
   vertical-align: middle;
+  justify-content: center;
   flex-direction: column;
+  padding: auto;
+}
+
+table {
+  justify-content: center;
 }
 
 input {
