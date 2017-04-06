@@ -44,6 +44,7 @@ export default function app() {
              console.log(data);
              var userTOKEN = data['user-token'];
              store.dispatch({ type: "LOGGED_IN", usertoken: userTOKEN});
+             store.dispatch( { type: "RELOAD_TASK_VIEW" } );
            },
            error: function(data, status, xhr) {
              console.log(data);
@@ -53,8 +54,8 @@ export default function app() {
 
       case "LOGGED_IN":
         var newState = {
-          usertoken: action.usertoken,
-          view: taskView
+          usertoken: action.usertoken//,
+          // view: taskView
         };
         return Object.assign({}, currentState, newState);
 
@@ -118,7 +119,8 @@ export default function app() {
 
       case "SAVED_TASKS":
         var newState = {
-          tasks: action.newTasks
+          tasks: action.newTasks,
+          view: taskView
         };
         console.log('Saved tasks works!');
         return Object.assign({}, currentState, newState);

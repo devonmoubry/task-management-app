@@ -1,9 +1,4 @@
-//import Model from 'model';
-
 export default function ( store ) {
-
-  // let tasks = model.getTasks()
-  // tasks ==> [{}, {}, {}]
 
   console.log('You are seeing the Task View');
 
@@ -66,12 +61,9 @@ export default function ( store ) {
                    });
   });
 
+console.log('Store: ', store.getState());
+
   $html.append($form);
-
-  // let allTasks = store.getState().tasks //=> [{}, {}, {}]
-  // allTasks.forEach(function(task) {
-
-  // })
 
   return $html;
 }
