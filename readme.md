@@ -51,5 +51,12 @@ Epic Mode
 
 Allow a user to filter the results. Rather than do the filtering on the front end, make a new request to the server when the user requests filters. You could filter by: search term in name or status, date created, due date, important, etc. Have fun with this.
 
+Planning
+--------
+<p align="center">
+  <img src="app/images/FullSizeRender.jpg.jpeg" width="350"/>
+  <img src="app/images/FullSizeRender.jpg-1.jpeg" width="350"/>
+</p>
+
 --------------------------------------------------------------------------------
 Created by Devon Moubry. devon@moubry.com
