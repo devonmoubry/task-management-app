@@ -19,14 +19,6 @@ export default function ( store ) {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td></td>
-            <td>pull weeds</td>
-            <td>gloves, trash can</td>
-            <td>false</td>
-            <td>yes</td>
-            <td>04/06/2015 5:35pm</td>
-          </tr>
         </tbody>
       </table>
     </section>
@@ -61,9 +53,24 @@ export default function ( store ) {
                    });
   });
 
-console.log('Store: ', store.getState());
+  console.log('Store: ', store.getState());
 
   $html.append($form);
+
+  var tasks = store.getState().tasks
+  tasks.forEach(function(task, index, array) {
+    $html.find('tbody').append($(`
+        <tr>
+          <td></td>
+          <td>${task.name}</td>
+          <td>${task.description}</td>
+          <td>${task.state}</td>
+          <td>${task.important}</td>
+          <td>${task.due_date}</td>
+        </tr>
+      `));
+  })
+
 
   return $html;
 }
