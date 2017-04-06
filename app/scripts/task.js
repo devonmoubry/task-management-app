@@ -2,39 +2,43 @@ export default function ( store ) {
 
   console.log('You are seeing the Task View');
 
+  var name = store.getState().name;
+
   let $html = $(`
     <section class="task-view">
       <h2>
         Hi, ${name}! Thank you for logging in. Here are your tasks.
       </h2>
-      <table>
-        <thead>
-          <tr>
-            <th></th>
-            <th>name</th>
-            <th>description</th>
-            <th>complete</th>
-            <th>important</th>
-            <th>due date</th>
-          </tr>
-        </thead>
-        <tbody>
-        </tbody>
-      </table>
+
+      <form id="submit_task" action="" method="post">
+        <table>
+          <thead>
+            <tr>
+              <th></th>
+              <th>name</th>
+              <th>description</th>
+              <th>complete</th>
+              <th>important</th>
+              <th>due date</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </form>
     </section>
   `);
 
   let $form = $(`
-    <form id="submit_task" action="" method="post">
-      <tr>
-        <td><button type="submit" value="add new task">add new task</button></td>
-        <td><input id="name" placeholder="name" value="check the mail"/></td>
-        <td><input id="description" placeholder="description" value="bring key and tractor"/></td>
-        <td><input id="state" type="checkbox" /></td>
-        <td><input id="important" type="checkbox" /></td>
-        <td><input id="due_date" placeholder="due_date" value="04/05/2017 5:35pm"/></td>
-      </tr>
-    </form>`);
+    <tr>
+      <td><button type="submit" value="add new task">add new task</button></td>
+      <td><input id="name" placeholder="name" value="check the mail"/></td>
+      <td><input id="description" placeholder="description" value="bring key and tractor"/></td>
+      <td><input id="state" type="checkbox" /></td>
+      <td><input id="important" type="checkbox" /></td>
+      <td><input id="due_date" placeholder="due_date" value="04/05/2017 5:35pm"/></td>
+    </tr>
+  `);
 
   $form.on('submit', (event) => {
     event.preventDefault();
@@ -55,11 +59,12 @@ export default function ( store ) {
 
   console.log('Store: ', store.getState());
 
-  $html.append($form);
+  var $tbody = $html.find('tbody');
+  $tbody.append($form);
 
   var tasks = store.getState().tasks
   tasks.forEach(function(task, index, array) {
-    $html.find('tbody').append($(`
+    $tbody.append($(`
         <tr>
           <td></td>
           <td>${task.name}</td>

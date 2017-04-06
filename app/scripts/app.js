@@ -43,7 +43,8 @@ export default function app() {
            success: function(data, status, xhr) {
              console.log(data);
              var userTOKEN = data['user-token'];
-             store.dispatch({ type: "LOGGED_IN", usertoken: userTOKEN});
+             var name = data['name'];
+             store.dispatch({ type: "LOGGED_IN", usertoken: userTOKEN, name: name});
              store.dispatch( { type: "RELOAD_TASK_VIEW" } );
            },
            error: function(data, status, xhr) {
@@ -54,8 +55,8 @@ export default function app() {
 
       case "LOGGED_IN":
         var newState = {
-          usertoken: action.usertoken//,
-          // view: taskView
+          usertoken: action.usertoken,
+          name: action.name
         };
         return Object.assign({}, currentState, newState);
 
