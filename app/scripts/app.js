@@ -96,7 +96,32 @@ export default function app() {
         //1. aja grt all tasks
           //1b. dispatch ...
         //2. return current state
+        $.ajax({
+          type: 'GET',
+          url: 'https://api.backendless.com/v1/data/taskManagementApp',
+          headers: {
+            "application-id": "24B65924-C870-5359-FF6E-4A5396B35700",
+            "secret-key": "BFBB0F72-782B-9CF9-FF71-D0C15271A900",
+            "application-type": "REST"
+          },
+          success: function(data, status, xhr) {
+            console.log('Here is the data', data);
+            var tasks = data.data;
+            store.dispatch({ type: "SAVED_TASKS", newTasks: tasks });
+          },
+          error: function(data, status, xhr) {
+            console.log(data);
+          }
+        });
+        console.log('RELOAD_TASK_VIEW');
+        return currentState;
 
+      case "SAVED_TASKS":
+        var newState = {
+          tasks: action.newTasks
+        };
+        console.log('Saved tasks works!');
+        return Object.assign({}, currentState, newState);
 
       default:
         console.log('This is the switch default');
