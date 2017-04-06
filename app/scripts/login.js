@@ -21,7 +21,7 @@ export default function ( store ) {
     var username = event.target.elements.username.value;
     var password = event.target.elements.password.value;
     store.dispatch({ type: "LOGGING_IN", username: username, password: password });
-  })
+  });
 
   return $html;
 }
