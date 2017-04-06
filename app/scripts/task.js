@@ -11,7 +11,6 @@ export default function ( store ) {
       <h2>
         Hi, ${name}! Thank you for logging in. Here are your tasks.
       </h2>
-
       <form id="submit_task" action="" method="post">
         <table>
           <thead>
@@ -31,7 +30,7 @@ export default function ( store ) {
     </section>
   `);
 
-  let $form = $(`
+  let $formInputs = $(`
     <tr>
       <td><button type="submit" value="add new task">add new task</button></td>
       <td><input id="name" placeholder="name" value="check the mail"/></td>
@@ -42,7 +41,7 @@ export default function ( store ) {
     </tr>
   `);
 
-  $form.on('submit', (event) => {
+  $html.find('#submit_task').on('submit', (event) => {
     event.preventDefault();
     var name = event.target.elements.name.value;
     var description = event.target.elements.description.value;
@@ -62,7 +61,7 @@ export default function ( store ) {
   console.log('Store: ', store.getState());
 
   var $tbody = $html.find('tbody');
-  $tbody.append($form);
+  $tbody.append($formInputs);
 
   var tasks = store.getState().tasks
   tasks.forEach(function(task, index, array) {
