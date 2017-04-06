@@ -44,7 +44,8 @@ export default function app() {
              console.log(data);
              var userTOKEN = data['user-token'];
              var name = data['name'];
-             store.dispatch({ type: "LOGGED_IN", usertoken: userTOKEN, name: name});
+             var userid = data['objectId'];
+             store.dispatch({ type: "LOGGED_IN", usertoken: userTOKEN, name: name, userid: userid });
              store.dispatch( { type: "RELOAD_TASK_VIEW" } );
            },
            error: function(data, status, xhr) {
@@ -56,7 +57,8 @@ export default function app() {
       case "LOGGED_IN":
         var newState = {
           usertoken: action.usertoken,
-          name: action.name
+          name: action.name,
+          userid: action.userid
         };
         return Object.assign({}, currentState, newState);
 
@@ -95,11 +97,14 @@ export default function app() {
         return currentState;
 
       case "RELOAD_TASK_VIEW":
-        //1. aja grt all tasks
-          //1b. dispatch ...
-        //2. return current state
+        // How do you get the tasks for the user?
+        // https://backendless.com/documentation/data/rest/data_search_and_query.htm
+        var userid = store.getState().userid;
+        var whereClause = "user%3D%27" + userid + "%27";
+
         $.ajax({
           type: 'GET',
+          //url: 'https://api.backendless.com/v1/data/taskManagementApp?where=' + whereClause,
           url: 'https://api.backendless.com/v1/data/taskManagementApp',
           headers: {
             "application-id": "24B65924-C870-5359-FF6E-4A5396B35700",

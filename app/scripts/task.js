@@ -33,11 +33,11 @@ export default function ( store ) {
   let $formInputs = $(`
     <tr>
       <td><button type="submit" value="add new task">add new task</button></td>
-      <td><input id="name" placeholder="name" value="check the mail"/></td>
-      <td><input id="description" placeholder="description" value="bring key and tractor"/></td>
+      <td><input id="name" placeholder="name" value=""/></td>
+      <td><input id="description" placeholder="description" value=""/></td>
       <td><input id="state" type="checkbox" /></td>
       <td><input id="important" type="checkbox" /></td>
-      <td><input id="due_date" placeholder="due_date" value="04/05/2017 5:35pm"/></td>
+      <td><input id="due_date" placeholder="01/01/2001 1:00pm" value=""/></td>
     </tr>
   `);
 
@@ -72,7 +72,7 @@ export default function ( store ) {
           <td>${task.description}</td>
           <td>${task.state}</td>
           <td>${task.important}</td>
-          <td>${moment(task.due_date).format("ddd, MMM Do YY, h:mm a")}</td>
+          <td>${moment(task.due_date).format("ddd, MMM Do YY, h:mm")}</td>
         </tr>
       `));
   })
