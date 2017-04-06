@@ -1,3 +1,5 @@
+import moment from 'moment';
+
 export default function ( store ) {
 
   console.log('You are seeing the Task View');
@@ -71,7 +73,7 @@ export default function ( store ) {
           <td>${task.description}</td>
           <td>${task.state}</td>
           <td>${task.important}</td>
-          <td>${task.due_date}</td>
+          <td>${moment(task.due_date).format("ddd, MMM Do YY, h:mm a")}</td>
         </tr>
       `));
   })
